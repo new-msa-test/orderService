@@ -23,21 +23,21 @@ public class OrderController {
         return ResponseEntity.ok("주문 성공!");
     }
 
-    @GetMapping
-    public ResponseEntity<List<OrderDto>> getAllOrders() {
+//    @GetMapping
+//    public ResponseEntity<List<OrderDto>> getAllOrders() {
+//
+//        return ResponseEntity.ok(orderService.getAllOrders());
+//    }
 
-        return ResponseEntity.ok(orderService.getAllOrders());
-    }
+//    @GetMapping("/{orderId}")
+//    public ResponseEntity<OrderDto> getOrderById(@PathVariable Long orderId) {
+//
+//        return ResponseEntity.ok(orderService.getOrderById(orderId));
+//    }
 
-    @GetMapping("/{orderId}")
-    public ResponseEntity<OrderDto> getOrderById(@PathVariable Long orderId) {
-
-        return ResponseEntity.ok(orderService.getOrderById(orderId));
-    }
-
-    @GetMapping("users/{userId}")
-    public ResponseEntity<List<OrderDto>> getAllOrdersByUser(@PathVariable Long userId) {
-
-        return ResponseEntity.ok(orderService.getAllOrdersByUserId(userId));
-    }
+//    @GetMapping("users/{userId}")
+//    public ResponseEntity<List<OrderDto>> getAllOrdersByUser(@PathVariable Long userId) {
+//
+//        return ResponseEntity.ok(orderService.getAllOrdersByUserId(userId));
+//    }
 }

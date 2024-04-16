@@ -18,6 +18,9 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String orderCode;
     private Long productId;
+    private int productQuantity;
     private Long userId;
 }

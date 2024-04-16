@@ -7,9 +7,9 @@ import java.util.List;
 public interface OrderService {
     void createOrder(OrderDto orderDto);
 
-    List<OrderDto> getAllOrders();
+//    List<OrderDto> getAllOrders();
 
-    OrderDto getOrderById(Long orderId);
+//    OrderDto getOrderById(Long orderId);
 
-    List<OrderDto> getAllOrdersByUserId(Long userId);
+//    List<OrderDto> getAllOrdersByUserId(Long userId);
 }

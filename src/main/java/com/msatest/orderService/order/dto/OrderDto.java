@@ -6,27 +6,30 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class OrderDto {
     private Long id;
-    private Long productId;
+    private List<ProductOrderDto> productList;
     private Long userId;
 
-    public Orders toEntity(OrderDto orderDto) {
-        return Orders.builder()
-                .productId(orderDto.productId)
-                .userId(orderDto.userId)
-                .build();
-    }
+//    public Orders toEntity(Long userId, ProductOrderDto productDto) {
+//        return Orders.builder()
+//                .productQuantity(productDto.getQuantity())
+//                .productId(productDto.getProductId())
+//                .userId(userId)
+//                .build();
+//    }
 
-    public static OrderDto toDto(Orders orders) {
-        return OrderDto.builder()
-                .id(orders.getId())
-                .productId(orders.getProductId())
-                .userId(orders.getUserId())
-                .build();
-    }
+//    public static OrderDto toDto(Orders orders) {
+//        return OrderDto.builder()
+//                .id(orders.getId())
+//                .productId(orders.getProductId())
+//                .userId(orders.getUserId())
+//                .build();
+//    }
 }

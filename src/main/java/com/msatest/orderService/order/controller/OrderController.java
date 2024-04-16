@@ -1,6 +1,7 @@
 package com.msatest.orderService.order.controller;
 
 import com.msatest.orderService.order.dto.OrderDto;
+import com.msatest.orderService.order.dto.OrderListResponseDto;
 import com.msatest.orderService.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -35,9 +36,9 @@ public class OrderController {
 //        return ResponseEntity.ok(orderService.getOrderById(orderId));
 //    }
 
-//    @GetMapping("users/{userId}")
-//    public ResponseEntity<List<OrderDto>> getAllOrdersByUser(@PathVariable Long userId) {
-//
-//        return ResponseEntity.ok(orderService.getAllOrdersByUserId(userId));
-//    }
+    @GetMapping("users/{userId}")
+    public ResponseEntity<List<OrderListResponseDto>> getAllOrdersByUser(@PathVariable Long userId) {
+
+        return ResponseEntity.ok(orderService.getAllOrdersByUserId(userId));
+    }
 }

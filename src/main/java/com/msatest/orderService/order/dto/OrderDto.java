@@ -14,6 +14,7 @@ import java.util.List;
 @Builder
 public class OrderDto {
     private Long id;
+    private String orderCode;
     private List<ProductOrderDto> productList;
     private Long userId;
 
@@ -28,7 +29,7 @@ public class OrderDto {
 //    public static OrderDto toDto(Orders orders) {
 //        return OrderDto.builder()
 //                .id(orders.getId())
-//                .productId(orders.getProductId())
+//                .productList(orders.)
 //                .userId(orders.getUserId())
 //                .build();
 //    }

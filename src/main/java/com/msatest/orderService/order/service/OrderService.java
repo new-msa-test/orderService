@@ -1,6 +1,7 @@
 package com.msatest.orderService.order.service;
 
 import com.msatest.orderService.order.dto.OrderDto;
+import com.msatest.orderService.order.dto.OrderListResponseDto;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ public interface OrderService {
 
 //    OrderDto getOrderById(Long orderId);
 
-//    List<OrderDto> getAllOrdersByUserId(Long userId);
+    List<OrderListResponseDto> getAllOrdersByUserId(Long userId);
 }

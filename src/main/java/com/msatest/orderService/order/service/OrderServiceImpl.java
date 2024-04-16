@@ -1,18 +1,26 @@
 package com.msatest.orderService.order.service;
 
+import com.msatest.orderService.order.dto.OrderCodeDto;
 import com.msatest.orderService.order.dto.OrderDto;
+import com.msatest.orderService.order.dto.OrderListResponseDto;
+import com.msatest.orderService.order.dto.ProductOrderDto;
 import com.msatest.orderService.order.model.Orders;
 import com.msatest.orderService.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
+
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
@@ -54,8 +62,25 @@ public class OrderServiceImpl implements OrderService {
 //        return OrderDto.toDto(orders);
 //    }
 
-//    @Override
-//    public List<OrderDto> getAllOrdersByUserId(Long userId) {
-//        return orderRepository.findAllByUserId(userId).stream().map(OrderDto::toDto).toList();
-//    }
+    @Override
+    public List<OrderListResponseDto> getAllOrdersByUserId(Long userId) {
+
+        List<OrderCodeDto> orders = orderRepository.findAllByUserIdGroupByOrderCode(userId);
+
+        List<OrderListResponseDto> result = new ArrayList<>();
+
+        orders.forEach(orderCodeDto -> {
+            List<ProductOrderDto> productOrderList = orderRepository.findAllByOrderCode(orderCodeDto.getOrderCode())
+                    .stream()
+                    .map(ProductOrderDto::toDto)
+                    .toList();
+
+            result.add(OrderListResponseDto.builder()
+                    .orderCode(orderCodeDto.getOrderCode())
+                    .productOrderList(productOrderList)
+                    .build());
+        });
+
+        return result;
+    }
 }

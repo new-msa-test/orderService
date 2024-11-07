@@ -1,10 +1,7 @@
 package com.msatest.orderService.order.dto;
 
 import com.msatest.orderService.order.model.Orders;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,6 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class OrderDto {
     private Long id;
     private String orderCode;
